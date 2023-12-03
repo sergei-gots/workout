@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class FindFirstUniqueValue {
+public class FirstUniqueValue {
     public static void main(String[] args) {
         workout();
     }

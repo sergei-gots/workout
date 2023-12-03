@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class FindUniqueCountries {
+public class UniqueCountries {
     public static void workout() {
         List<String> cities = Arrays.asList(
                 "Москва, Россия",

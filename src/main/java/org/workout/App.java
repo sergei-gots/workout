@@ -9,16 +9,19 @@ public class App
     public static void main( String[] args ) {
 
         System.out.println("Hello World!");
-        int caseIndex = 6;
+        int caseIndex = 7;
         switch (caseIndex) {
             case 0:
-                FindFirstUniqueValue.workout();
+                FirstUniqueValue.workout();
                 break;
             case 1:
-                FindUniqueCountries.workout();
+                UniqueCountries.workout();
+                break;
+            case 7:
+                StringsStartWith.workout();
                 break;
             case 2:
-                GetSum.workout();
+                Sum.workout();
                 break;
             case 3:
                 StringsSortedAndGroupedByLength.workout();
