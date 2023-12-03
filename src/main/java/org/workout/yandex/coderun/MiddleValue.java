@@ -9,6 +9,13 @@ import java.util.Arrays;
 
 public class MiddleValue {
 
+    public static void workout() {
+        try {
+            perform();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     /*
 	Для чтения входных данных необходимо получить их
 	из стандартного потока ввода (System.in).
@@ -41,28 +48,28 @@ public class MiddleValue {
     }
     writer.write(String.valueOf(sum));
 	*/
-    public static void workout() throws IOException {
+    public static void perform() throws IOException {
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out))
         ) {
 
 
             String[] parts = reader.readLine().split(" ");
-            //if (parts.length != 3) {
-            //  throw new IOException("Count of numbers must be = 3. " +
-            // "Numbers must be split by ' ' (space symbol).");
-            //}
+            if (parts.length != 3) {
+              throw new IOException("Count of numbers must be = 3. " +
+             "Numbers must be split by ' ' (space symbol).");
+            }
 
             int[] nums = new int[3];
-            Arrays.setAll(nums, i-> Integer.MAX_VALUE);
+
             try {
                 Arrays.setAll(nums,  i -> Integer.parseInt(parts[i]));
-            } catch (Exception e) {}
-            //throw new IOException("Couldn't parse integer");
-            //}
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Input must be in format '<num1> <num2> <num3>'" );
+            }
+
             int middleValue =  (nums[0] > nums[1]) ?
-                    ((nums[2] > nums[0]) ? nums[0] : nums[2]) :
-                    ((nums[2] > nums[1]) ? nums[1] : nums[2]);
+                    (Math.min(nums[2], nums[0])) :  (Math.min(nums[2], nums[1]));
             writer.write(String.valueOf(middleValue));
         }
     }
