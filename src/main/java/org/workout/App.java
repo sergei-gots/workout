@@ -2,17 +2,14 @@ package org.workout;
 
 import org.workout.myimpl.MyRandom;
 import org.workout.myimpl.TryToBreakHashMapUsingNotImplComparable;
-import org.workout.streamapi.FindFirstUniqueValue;
-import org.workout.streamapi.FindUniqueCountries;
-import org.workout.streamapi.GetSum;
-import org.workout.streamapi.StringsSortedAndGroupedByLength;
+import org.workout.streamapi.*;
 
 public class App
 {
     public static void main( String[] args ) {
 
         System.out.println("Hello World!");
-        int caseIndex = 5;
+        int caseIndex = 6;
         switch (caseIndex) {
             case 0:
                 FindFirstUniqueValue.workout();
@@ -31,6 +28,9 @@ public class App
                 break;
             case 5:
                 TryToBreakHashMapUsingNotImplComparable.workout();
+                break;
+            case 6:
+                SquareAndSort.workout();
                 break;
         }
     }

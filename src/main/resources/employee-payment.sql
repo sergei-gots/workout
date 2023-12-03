@@ -1,12 +1,15 @@
+CREATE DATABASE workout;
+
 CREATE TABLE employee (
                           id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
                           name VARCHAR(64)
 );
 
 CREATE TABLE payment (
-                          d DATE,
-                          amount DECIMAL(10,2) CHECK (amount >= 0),
-                          employee_id INT REFERENCES employee(id)
+                            id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+                            d DATE,
+                            amount DECIMAL(10,2) CHECK (amount >= 0),
+                            employee_id INT REFERENCES employee(id)
 );
 
 --ALTER TABLE payments RENAME TO payment;
@@ -44,5 +47,7 @@ HAVING SUM(p.amount) > 1000;
 
 
 SELECT e.name, SUM(p.amount) AS total_amount FROM employee e
-JOIN payment p ON  e.id = p.employee_id
-WHERE p.amount > 100;
+LEFT JOIN payment p ON  e.id = p.employee_id
+GROUP BY e.id;
+
+SELECT e.name FROM employee e;
