@@ -57,6 +57,7 @@ public class TryToBreakHashMapUsingNotImplComparable {
             KeyValue key = new KeyValue(i);
             System.out.println("Try to add <" + key + ", " + i + "> to our hashMap");
             System.out.println("Key.hashCode()=" + key.hashCode());
+            System.out.println("Key.identityHashCode()=" + System.identityHashCode(key)); // Уникальный хеш-код для obj1
             hashMap.put(key, key);
             System.out.println("hashMap.size()=" + hashMap.size());
         }
